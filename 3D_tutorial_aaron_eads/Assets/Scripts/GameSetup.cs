@@ -93,7 +93,7 @@ public class GameSetup : MonoBehaviour
                 currentPosition += new Vector3(1, 0, 0).normalized * ballDiameter;
             }
             //Once all the balls have been placed, move on to the next row
-            firstInRowPosition += new Vector3(-1, 0, -1).normalized * ballDiameter;
+            firstInRowPosition += Vector3.back * (Mathf.Sqrt(3) * ballRadius) + Vector3.left * ballRadius;
             currentPosition = firstInRowPosition;
             NumInThisRow++;
         }
