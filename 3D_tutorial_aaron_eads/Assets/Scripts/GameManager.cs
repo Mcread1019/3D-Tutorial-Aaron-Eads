@@ -26,17 +26,37 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject restartButton;
 
     [SerializeField] Transform headPosition;
+    [SerializeField] Camera cueStickCamera;
+    [SerializeField] Camera overheadCamera;
+    Camera CurrentCamera;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentPlayer = CurrentPlayer.Player1; 
+        currentPlayer = CurrentPlayer.Player1;
+        CurrentCamera = overheadCamera;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void SwitchCameras()
+    {
+        if(CurrentCamera == cueStickCamera)
+        {
+            cueStickCamera.enabled = false;
+            overheadCamera.enabled = true;
+            CurrentCamera = overheadCamera;
+        }
+        else
+        {
+            cueStickCamera.enabled=true;
+            overheadCamera.enabled=false;
+            CurrentCamera = cueStickCamera;
+        }
     }
     public void RestarttheGame()
     {
