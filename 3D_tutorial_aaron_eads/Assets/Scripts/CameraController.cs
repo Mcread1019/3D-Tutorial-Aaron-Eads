@@ -42,7 +42,6 @@ public class CameraController : MonoBehaviour
 
             transform.RotateAround(cueBall.position, Vector3.up, horizontalInput);
         }
-
         shoot();
     }
 
